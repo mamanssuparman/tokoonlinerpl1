@@ -41,4 +41,11 @@ class LoginController extends Controller
             echo "Login Gagal";
         }
     }
+
+    public function logout(Request $request)
+    {
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+        return redirect('/');
+    }
 }
